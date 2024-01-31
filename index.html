@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&family=Work+Sans:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Frontend Mentor | Results summary component</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-family: "Work Sans", sans-serif;
+      }
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: #3e52a3;
+      }
+
+      .main-container {
+        display: flex;
+        justify-content: center;
+        /* flex-direction: column; */
+      }
+
+      .container2 {
+        margin-top: 10vh;
+        background-color: #ffffff;
+        box-shadow: 1px 1px 28px #b8bef2;
+        /* margin: 0 auto; */
+        width: 1000px;
+        height: 570px;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: end;
+        /* padding-left: 800px; */
+        /* padding-top: 0px; */
+        /* padding-right: 50px; */
+        border-radius: 32px;
+        /* justify-content: space-evenly; */
+      }
+
+      /* flex-direction: column; */
+
+      .right-div {
+        display: flex;
+        flex-direction: column;
+
+        /* background-color: yellow; */
+        width: 500px;
+        height: 570px;
+        padding: 50px;
+        /* align-items: center; */
+      }
+
+      .summary {
+        padding-bottom: 35px;
+        font-size: 20px;
+      }
+
+      .icon {
+        width: 25px;
+      }
+
+      .word-space {
+        padding-left: 10px;
+      }
+
+      .percent {
+        color: #999999;
+      }
+
+      .reaction {
+        color: #ff5757;
+        opacity: 1;
+        display: flex;
+      }
+
+      .memory {
+        display: flex;
+        color: #ffb01f;
+      }
+
+      .verbal {
+        display: flex;
+        color: hsl(166, 100%, 37%);
+      }
+
+      .visual {
+        display: flex;
+        color: #1125d4;
+      }
+
+      .abilities {
+        display: flex;
+
+        /* background-color: black; */
+        flex-direction: column;
+        gap: 15px;
+        width: 400px;
+
+        font-size: 25px;
+
+        /* font-weight:normal; */
+
+        /* align-content: space-around; */
+
+        /* padding:30px; */
+      }
+
+      .color1 {
+        background-color: #fff1f1;
+        /* opacity: 0.2; */
+        padding: 17px;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        /* justify-content: space-around; */
+        justify-content: space-between;
+        border-radius: 12px;
+      }
+
+      .color2 {
+        background-color: #fff5e4;
+        padding: 17px;
+        height: 65px;
+        align-items: center;
+        display: flex;
+        /* align-items:center; */
+        justify-content: space-between;
+        border-radius: 12px;
+      }
+
+      .color3 {
+        background-color: #eaf1f1;
+        padding: 19px;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        /* align-items:center; */
+        justify-content: space-between;
+        border-radius: 12px;
+      }
+
+      .color4 {
+        background-color: #ecedfb;
+
+        padding: 17px;
+        display: flex;
+        height: 65px;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 12px;
+      }
+
+      /* .percentages {
+       float-right;
+        display: flex;
+        justify-content: space-around;
+      } */
+
+      a {
+        /* padding-top:30px; */
+        background-color: #2e2be9;
+        display: flex;
+        /* padding: 17px; */
+        height: 65px;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        border-radius: 35px;
+        color: white;
+      }
+
+      .continue {
+        margin-top: 30px;
+        /* padding-bottom: 30px; */
+      }
+
+      .container4 {
+        padding: 50px;
+        border-radius: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        background-image: linear-gradient(#7857ff, #2e2be9);
+        /* margin: 0 auto; */
+        width: 500px;
+        height: 570px;
+      }
+
+      .result {
+        font-size: 25px;
+        padding-bottom: 30px;
+        color: white;
+        opacity: 0.4;
+      }
+
+      .circle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* padding: 90px; */
+        background: linear-gradient(#4e21ca, #2421ca00);
+        /* box-shadow: 1px 1px 28px #5448c5; */
+        /* background-color: rgb(87, 42, 165); */
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin-bottom: 30px;
+      }
+
+      .score {
+        color: white;
+        font-size: 90px;
+      }
+
+      .total {
+        font-size: 20px;
+        color: whitesmoke;
+        opacity: 0.4;
+      }
+
+      .great {
+        font-size: 30px;
+        color: whitesmoke;
+        margin-bottom: 30px;
+      }
+
+      .higher-than {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 18px;
+        color: white;
+        opacity: 0.4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="container2">
+        <div class="container4">
+          <h3 class="result">Your Result</h3>
+
+          <div class="circle">
+            <h1 class="score">76</h1>
+            <p class="total">of 100</p>
+          </div>
+
+          <h2 class="great">Great</h2>
+
+          <div class="higher-than">
+            <p>You scored higher than 65% of</p>
+            <p>the people who have taken</p>
+            <p>these tests.</p>
+          </div>
+        </div>
+        <!-- <div class="container4">io</div> -->
+        <!-- Your Result 76 of 100 Great You scored higher than 65% of the people who
+        have taken these tests. -->
+        <div class="right-div">
+          <div class="summary"><h3>Summary</h3></div>
+
+          <div class="abilities">
+            <div class="color1">
+              <div class="reaction">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                  />
+                </svg>
+                <p class="word-space">Reaction</p>
+              </div>
+
+              <div class="percentages">
+                80 <span class="percent"> / 100</span>
+              </div>
+            </div>
+
+            <div class="color2">
+              <div class="memory">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  viewBox="0 0 24 24"
+                  style="fill: hsl(39, 100%, 56%)"
+                >
+                  <path
+                    d="M19.864 8.465a3.505 3.505 0 0 0-3.03-4.449A3.005 3.005 0 0 0 14 2a2.98 2.98 0 0 0-2 .78A2.98 2.98 0 0 0 10 2c-1.301 0-2.41.831-2.825 2.015a3.505 3.505 0 0 0-3.039 4.45A4.028 4.028 0 0 0 2 12c0 1.075.428 2.086 1.172 2.832A4.067 4.067 0 0 0 3 16c0 1.957 1.412 3.59 3.306 3.934A3.515 3.515 0 0 0 9.5 22c.979 0 1.864-.407 2.5-1.059A3.484 3.484 0 0 0 14.5 22a3.51 3.51 0 0 0 3.19-2.06 4.006 4.006 0 0 0 3.138-5.108A4.003 4.003 0 0 0 22 12a4.028 4.028 0 0 0-2.136-3.535zM9.5 20c-.711 0-1.33-.504-1.47-1.198L7.818 18H7c-1.103 0-2-.897-2-2 0-.352.085-.682.253-.981l.456-.816-.784-.51A2.019 2.019 0 0 1 4 12c0-.977.723-1.824 1.682-1.972l1.693-.26-1.059-1.346a1.502 1.502 0 0 1 1.498-2.39L9 6.207V5a1 1 0 0 1 2 0v13.5c0 .827-.673 1.5-1.5 1.5zm9.575-6.308-.784.51.456.816c.168.3.253.63.253.982 0 1.103-.897 2-2.05 2h-.818l-.162.802A1.502 1.502 0 0 1 14.5 20c-.827 0-1.5-.673-1.5-1.5V5c0-.552.448-1 1-1s1 .448 1 1.05v1.207l1.186-.225a1.502 1.502 0 0 1 1.498 2.39l-1.059 1.347 1.693.26A2.002 2.002 0 0 1 20 12c0 .683-.346 1.315-.925 1.692z"
+                  ></path>
+                </svg>
+                <p class="word-space">Memory</p>
+              </div>
+
+              <div class="percentages">
+                92 <span class="percent"> / 100</span>
+              </div>
+            </div>
+
+            <div class="color3">
+              <div class="verbal">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"
+                  />
+                </svg>
+
+                <p class="word-space">Verbal</p>
+              </div>
+
+              <div class="percentages">
+                61 <span class="percent"> / 100</span>
+              </div>
+            </div>
+            <div class="color4">
+              <div class="visual">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+
+                <p class="word-space">Visual</p>
+              </div>
+              <div class="percentages">
+                72 <span class="percent"> / 100</span>
+              </div>
+            </div>
+
+            <div class="continue"><a href="#">Continue</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Your Name Here</a>.
+        </div> -->
+    </div>
+  </body>
+</html>
